@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import db from "../db";
 
 function EditContact() {
@@ -99,12 +100,12 @@ function EditContact() {
 				<div className="flex justify-between items-center mb-8 focus:outline-none " aria-label="Cancel">
         	<h1 className="text-xl text-white font-normal">{"// " + firstName + " " + lastName}</h1>
 						<button onClick={() => {
-							const confirmCancel = window.confirm("Are you sure you want to cancel?");
+							const confirmCancel = window.confirm("Are you sure you want to delete this contact?");
 							if (confirmCancel) {
-								navigate(`/`);
+								handleDelete();
 							}}}
-							className="bg-transparent border border-zinc-700 hover:bg-zinc-700 text-white px-3 py-[7px] rounded-full text-sm transition ease duration-300" title="Cancel" aria-label="Cancel">
-          	<FontAwesomeIcon icon={faXmark}/>
+							className="bg-transparent border border-zinc-700 hover:bg-zinc-700 text-white px-5 py-[15px] rounded-full text-md transition ease duration-300" title="Cancel" aria-label="Cancel">
+          	<FontAwesomeIcon icon={faTrashCan}/>
         	</button>
 				</div>
 					{/* Mobile Preview Card */}
@@ -257,7 +258,7 @@ function EditContact() {
                   key={tag}
                   onClick={() => handleTagClick(tag)}
                   className={` rounded-full  cursor-pointer transition duration-300 ease text-white py-1 px-3 bg-zinc-700 hover:bg-zinc-900 focus:bg-zinc-900 focus:outline-none ${
-                    tags.includes(tag) ? "!bg-blue-500" : ""
+                    tags.includes(tag) ? "!bg-green-500" : ""
                   }`}
                   role="button" aria-label={tag}
                 >
@@ -277,7 +278,7 @@ function EditContact() {
 						}} className="bg-transparent border border-zinc-700 hover:bg-zinc-700 text-white font-semibold py-3 px-4 rounded-full text-sm transition ease duration-300 focus:bg-zinc-700 focus:outline-none cursor-pointer" title="Cancel" aria-label="Cancel">
 						Cancel
 						</a>
-						<button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-full text-sm transition ease duration-300 focus:bg-blue-500 focus:outline-none" title="Confirm" aria-label="Confirm">Confirm</button>
+						<button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-full text-sm transition ease duration-300 focus:bg-green-500 focus:outline-none" title="Confirm" aria-label="Confirm">Confirm</button>
 						</div>
         </form>
       </div>

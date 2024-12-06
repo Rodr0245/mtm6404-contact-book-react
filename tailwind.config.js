@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         "background": "#1d1d1d",
         "darkBackground": "#121212",
+        "customBlue": "#266aed",
       },
     },
   },

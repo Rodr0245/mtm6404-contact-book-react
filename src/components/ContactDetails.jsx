@@ -55,14 +55,6 @@ function ContactDetails() {
   if (!contact) return <p>Loading...</p>;
 
 	const placeholderImage = "https://imebehavioralhealth.com/wp-content/uploads/2021/10/user-icon-placeholder-1.png";
-	const handleUserImage = (contact) => {
-
-	return contact.imageLink ? (
-		<img src={contact.imageLink} alt={`${contact.firstName} ${contact.lastName}`} />
-		) : (
-		<img src={placeholderImage} alt="No user image" />
-		);
-	};
 
 		// Handles favorite selection
 	const handleFavoriteClick = async (contact) => {
@@ -84,8 +76,9 @@ function ContactDetails() {
 };
 
   return (
-		<div className="bg-darkBackground min-h-screen flex justify-center md:items-center motion-bg-in-background motion-delay-200 ">
-      <div className="m-4 lg:m-0 px-4 md:px-8 py-8 max-w-md md:max-w-3xl w-full bg-background rounded-3xl backdrop-blur-lg motion-preset-blur-up-md motion-delay-75 h-full" tabIndex={-1}>
+		<div className="bg-darkBackground min-h-screen flex justify-center md:items-center motion-bg-in-background motion-delay-200 relative">
+
+      <div className="m-4 lg:m-0 px-4 md:px-8 py-8 max-w-md md:max-w-3xl w-full bg-background/50 backdrop-blur-3xl rounded-3xl motion-preset-blur-up-md motion-delay-75 h-full" tabIndex={-1}>
 				<div className="flex justify-between items-center mb-8 focus:outline-none " aria-label="Cancel">
         	<h1 className="text-xl text-white font-normal">{"// " + contact.firstName + " " + contact.lastName}</h1>
 						<button onClick={() => navigate("/")}
@@ -95,8 +88,8 @@ function ContactDetails() {
 				</div>
 					{/* Contact Card */}
 						<div className="contactCard flex flex-col items-center w-full rounded-2xl p-4 gap-8 focus:outline-none transition ease duration-300 cursor-default my-8 " role="button" aria-label="Contact Card" title={contact.firstName + " " + contact.lastName}>
-							<div className={favoredContacts[contact.id] ? "contactPicture w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] overflow-hidden bg-green-400 p-4 transition ease duration-300 relative" : "contactPicture w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] bg-transparent p-4 transition ease duration-300 relative overflow-visible"} style={{ borderRadius: "100% 70px 100% 100% "}}>
-								<button title="Favorite" className={favoredContacts[contact.id] ? "bg-green-400 absolute top-0 right-0 rounded-full px-4 py-3 transition-[background,transform] ease duration-300 transform-scale-105 text-white md:text-xl md:-translate-x-1 md:translate-y-1 lg:text-2xl lg:-translate-x-3 lg:translate-y-3" : "translate-x-4 text-zinc-700 border rounded-full transition-[background,transform] ease duration-300 absolute top-0 right-0 px-3 py-2.5 md:text-2xl border-zinc-700 hover:scale-110 hover:bg-green-400 hover:text-white"} onClick={() => handleFavoriteClick(contact)}><FontAwesomeIcon icon={faStar}/></button>
+							<div className={favoredContacts[contact.id] ? "contactPicture w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] overflow-hidden bg-green-500 p-4 transition ease duration-300 relative" : "contactPicture w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] bg-transparent p-4 transition ease duration-300 relative overflow-visible"} style={{ borderRadius: "100% 70px 100% 100% "}}>
+								<button title="Favorite" className={favoredContacts[contact.id] ? "bg-green-500 absolute top-0 right-0 rounded-full px-4 py-3 transition-[background,transform] ease duration-300 transform-scale-105 text-white md:text-xl md:-translate-x-1 md:translate-y-1 lg:text-2xl lg:-translate-x-3 lg:translate-y-3" : "translate-x-4 text-zinc-700 border rounded-full transition-[background,transform] ease duration-300 absolute top-0 right-0 px-3 py-2.5 md:text-2xl border-zinc-700 hover:scale-110 hover:bg-green-500 hover:text-white"} onClick={() => handleFavoriteClick(contact)}><FontAwesomeIcon icon={faStar}/></button>
 							<div className="h-full w-full bg-cover bg-center bg-no-repeat">
 								<img
 									className={`w-full h-full object-cover object-center rounded-full ${
@@ -120,7 +113,7 @@ function ContactDetails() {
 									aria-label="Tag">{tag}
 								</span>
 								))}
-								<span className={favoredContacts[contact.id] ? "hover:bg-transparent hover:border hover:border-zinc-700 bg-green-400 rounded-full transition duration-300 ease text-white motion-preset-blur-up text-sm py-1 px-2 md:text-md lg:text-lg cursor-pointer" : "hidden"} title="unfavorite" onClick={() => handleFavoriteClick(contact)}>Favorited</span>
+								<span className={favoredContacts[contact.id] ? "hover:bg-green-800 bg-green-500 rounded-full transition duration-300 ease text-white motion-preset-blur-up text-sm py-1 px-2 md:text-md lg:text-lg cursor-pointer" : "hidden"} title="unfavorite" onClick={() => handleFavoriteClick(contact)}>Favorited</span>
 							</p>
 							</div>	
 								<div className="flex justify-center mt-4 space-x-4">

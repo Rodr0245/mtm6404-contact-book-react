@@ -206,7 +206,7 @@ function NewContact() {
                   key={tag}
                   onClick={() => handleTagClick(tag)}
                   className={` rounded-full  cursor-pointer transition duration-300 ease text-white py-1 px-3 bg-zinc-700 hover:bg-zinc-900 focus:bg-zinc-900 focus:outline-none ${
-                    tags.includes(tag) ? "!bg-blue-500" : ""
+                    tags.includes(tag) ? "!bg-green-500" : ""
                   }`}
                   role="button" aria-label={tag}
                 >
@@ -226,7 +226,7 @@ function NewContact() {
 						}} className="bg-transparent border border-zinc-700 hover:bg-zinc-700 text-white font-semibold py-3 px-4 rounded-full text-sm transition ease duration-300 focus:bg-zinc-700 focus:outline-none cursor-pointer" title="Cancel" aria-label="Cancel">
 						Cancel
 						</a>
-						<button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-full text-sm transition ease duration-300 focus:bg-blue-500 focus:outline-none" title="Create Contact" aria-label="Create Contact">Create Contact</button>
+						<button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-full text-sm transition ease duration-300 focus:bg-blue-500 focus:outline-none" title="Create Contact" aria-label="Create Contact">Create Contact</button>
 						</div>
         </form>
       </div>

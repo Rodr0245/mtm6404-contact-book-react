@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 html {
-  background: #1d1d1d;
+  /* background: #121212; */
+  background: black;
 }
